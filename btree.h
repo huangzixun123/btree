@@ -1,3 +1,6 @@
+#pragma once
+#include "node.h"
+// A BTree
 class BTree
 {
 	Node* root;

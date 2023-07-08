@@ -1,3 +1,7 @@
+#pragma once
+#include <cstring>
+#include <iostream>
+
 class Node
 {
 	Node** children;
