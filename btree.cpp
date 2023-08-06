@@ -10,7 +10,8 @@ void BTree::Traverse(){
 		root->traverse(0);
 }
 
-Node* BTree::Search(int k){
+// Get searchs the given key in the tree
+Node* BTree::Get(int k){
 	return (root == nullptr)? nullptr : root->search(k);
 }
 
@@ -24,8 +25,8 @@ int BTree::minKeys(){
 	return degree - 1;
 }
 
-// ReplaceOrInsert adds the given key k to the tree.
-void BTree::ReplaceOrInsert(int k)
+// Put inserts the given key k to the tree.
+void BTree::Put(int k)
 {
 	if (root == nullptr) {
 		root = new Node(maxKeys(), true);
@@ -42,4 +43,24 @@ void BTree::ReplaceOrInsert(int k)
 		}
 	}
 	root->insert(k, maxKeys());
+}
+
+// Delete deletes the given key k in the tree.
+bool BTree::Delete(int k) {
+	if (root == nullptr || root.len == 0) {
+		return false;
+	}
+
+	bool success = root.remove(k);
+	if(root.len == 0) {
+		Node* oldroot = root;
+		if(root.leaf == true){
+			root = nullptr;
+		}else{
+			root = oldroot->children[0];
+		}
+		delete root;
+	}
+
+	return success;
 }

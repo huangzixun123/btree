@@ -17,7 +17,7 @@ class Node
 	void insertKeyAt(int index, int key); 
 	void insertChildAt(int index, Node* child);
 	int find(int key); 
-	
+	bool remove(int k);
 
 friend class BTree;
 };

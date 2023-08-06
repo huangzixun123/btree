@@ -8,8 +8,9 @@ class BTree
 public:
 	BTree(int _degree);
 	void Traverse();
-	Node* Search(int k);
-	void ReplaceOrInsert(int k);
+	Node* Get(int k);
+	void Put(int k);
+	bool Delete(int k);
 private:
 	int maxKeys();
 	int minKeys();
